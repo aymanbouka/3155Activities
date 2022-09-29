@@ -4,6 +4,14 @@ import pythonBasics3
 
 class TestPythonBasicsOne(unittest.TestCase):
 
+#  def test(got, expected):
+#      prefix = ' OK ' if got == expected else '  X '
+#      print ('%s got: %s expected: %s' % (prefix, repr(got), repr(expected)))
+
+
+# class TestPythonBasicsOne(unittest.TestCase):
+#     test_starts_with_non_number = True
+
 #Test case for starts_with_non_number
     def test_starts_with_non_number(self):
 
@@ -16,8 +24,16 @@ class TestPythonBasicsOne(unittest.TestCase):
         self.assertEqual(pythonBasics3.starts_with_non_number(" 1 more meal left in the fridge"), True)
 
         self.assertEqual(pythonBasics3.starts_with_non_number("# is used to comment a line in Python"), True)
-
+        
         # Please add three more test cases following the order above
+
+
+        self.assertEqual(pythonBasics3.starts_with_non_number("Python is cool"), True)
+
+        self.assertEqual(pythonBasics3.starts_with_non_number("1"), False)
+
+        self.assertEqual(pythonBasics3.starts_with_non_number("Hello this is bob"), True)
+
 
 #Test case for multiple_words
     def test_multiple_words(self):
@@ -33,6 +49,12 @@ class TestPythonBasicsOne(unittest.TestCase):
         self.assertEqual(pythonBasics3.multiple_words(" one-sided? "), False)
 
         # Please add three more test cases following the order above
+
+        self.assertEqual(pythonBasics3.multiple_words("TheSame\\whitespace"), False)
+
+        self.assertEqual(pythonBasics3.multiple_words("Hi guys"), True)
+
+        self.assertEqual(pythonBasics3.multiple_words(" two-sided "), False)
 
 
 #Test case for reserved_us_tld
@@ -51,7 +73,11 @@ class TestPythonBasicsOne(unittest.TestCase):
         self.assertEqual(pythonBasics3.reserved_us_tld("https://www.congress.gov"), True)
 
         # This does match the description (https and .edu) but it includes extra stuff. Feel free to implement this functionality.
-        self.assertEqual(pythonBasics3.reserved_us_tld("https://selfservice.uncc.edu/pls/BANPROD/twbkwbis.P_GenMenu?name=homepage"), False)
+        self.assertEqual(pythonBasics3.reserved_us_tld("https://bing.com"), False)
+
+        self.assertEqual(pythonBasics3.reserved_us_tld("https://google.com"), False)
+
+        self.assertEqual(pythonBasics3.reserved_us_tld("https://charlotte.edu"), True)
 
 
 
