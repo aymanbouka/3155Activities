@@ -1,11 +1,11 @@
-# FLASK Tutorial 1 -- We show the bare bones code to get an app up and running
-
 # imports
 import os                 # os is used to get environment variables IP & PORT
 from flask import Flask   # Flask is the web app that we will customize
 from flask import render_template
 from flask import request
 from flask import redirect, url_for
+from models import Note as Note
+from models import User as User
 
 
 
@@ -35,6 +35,7 @@ def get_note(note_id):
 # @app.route is a decorator. It gives the function "index" special powers.
 # In this case it makes it so anyone going to "your-url/" makes this function
 # get called. What it returns is what is shown as the web page
+@app.route('/')
 @app.route('/index')
 def index():
     a_user = db.session.query(User).filter_by(email='mogli@uncc.edu')
